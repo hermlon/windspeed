@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<title>Devices</title>
+	</head>
+	<body>
+		<table border="1">
+			<tr>
+				<th>Id</th>
+				<th>last time</th>
+				<th>last value</th>
+				<th>last IP</th>
+			</tr>
+			{% for device in devices %}
+				<tr>
+					<td><a href="/devices/{{ device.device_id }}">{{ device.device_id }}</a></td>
+					<td>{{ device.timestamp }}</td>
+					<td>{{ device.value }}</td>
+					<td>{{ device.ip }}</td>
+				</tr>
+			{% endfor %}
+		</table>
+	</body>
+</html>
