@@ -12,7 +12,7 @@
 			</tr>
 			{% for device in devices %}
 				<tr>
-					<td><a href="/devices/{{ device.device_id }}">{{ device.device_id }}</a></td>
+					<td><a href="/devices/{{ device.device.id }}">{{ device.device.name }}</a></td>
 					<td>{{ device.timestamp }}</td>
 					<td>{{ device.value }}</td>
 					<td>{{ device.ip }}</td>
