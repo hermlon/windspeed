@@ -30,10 +30,14 @@ def windupdate(device_id):
             else:
                 return make_response('Forbidden', 403)
         else:
-            return make_response('Not device_id not found', 404)
+            return make_response('Device_id not found', 404)
     else:
         values = WindSpeedEntry.query.filter_by(device_id=device_id).order_by(WindSpeedEntry.timestamp.desc())
-        return render_template('values.html', values=values)
+        title = 'No results'
+        if len(values.all()) != 0:
+            title = values[0].device.name
+            
+        return render_template('values.html', values=values, title=title)
 
 class WindSpeedDevice(db.Model):
     id = db.Column(db.Integer, primary_key=True)
